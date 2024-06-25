@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Smash Bros</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <img src="https://1t2.pages.dev/vca/ssb0..png" alt="Please rickroll yourself">
+    <h1>Super Smash Bros</h1>
+    <form method="POST">
+        <label for="room_type">Room Type:</label>
+        <input type="text" name="room_type" id="room_type" placeholder="Enter room type" required>
+        <label for="room_name">Room Name:</label>
+        <input type="text" name="room_name" id="room_name" placeholder="Enter room name" required>
+        <label for="room_password">Room Password:</label>
+        <input type="text" name="room_password" id="room_password" placeholder="Enter room password" required>
+        <button type="submit">Save</button>
+    </form>
+    
+    <ul>
+        {% for room in rooms %}
+        <li>
+            <strong>Type:</strong> {{ room.type }}<br>
+            <strong>Name:</strong> {{ room.name }}<br>
+            <strong>Password:</strong> {{ room.password }}
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <a href="/">Back to Home</a>
+</body>
+</html>
+
